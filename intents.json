@@ -1,0 +1,100 @@
+{
+  "intents": [
+    {
+      "tag": "greet",
+      "patterns": ["hi","Hi there", "Hello", "Hey", "Good morning"],
+      "responses": ["Hello! How can I assist you?", "Hi! How may I help you?", "Hey there! How can I be of service?"]
+    },
+    {
+      "tag": "schedule_cleaning",
+      "patterns": ["I want to schedule a cleaning service", "Can I book a cleaning appointment?", "How can I set up a cleaning appointment?", "Schedule a cleaning for tomorrow."],
+      "responses": ["Sure, I can help you with that. When would you like to schedule the cleaning?", "Of course! Let's get your cleaning appointment set up.", "Sure, I can assist you in booking a cleaning service."]
+    },
+    {
+      "tag": "service_info",
+      "patterns": ["What janitorial/cleaning services do you offer?", "Tell me about your cleaning services.", "What secure and logistic services do you provide?", "Tell me about your executive car hire service?", "What business services do you offer?", "Do you provide recruitment and training solutions?", "What industries do you specialize in?"],
+      "responses": [
+        "We offer a range of janitorial/cleaning services, including home, office, site, and event cleaning.",
+        "Our cleaning services cover various areas, including residential and commercial properties.",
+        "Our secure and logistic services include executive car hire, journey management, protocol services, and fleet management.",
+        "Our executive car hire service offers premium vehicles with professional drivers.",
+        "We offer business solutions, including outsourcing, recruitment, training, and business reports.",
+        "Yes, we provide recruitment and training solutions tailored to your organization's needs.",
+        "We specialize in serving multiple industries, including [mention industries]."
+      ]
+    },
+    {
+      "tag": "pricing_info",
+      "patterns": ["How much does your janitorial cleaning service cost?", "What are the rates for home cleaning?", "Tell me about your post-construction cleaning pricing?", "How much does outsourcing cost?", "What are the fees for business report services?", "What are the charges for executive car hire?", "Tell me about your journey management pricing?", "What is the cost of your fleet management service?", "Do you have special packages for safety equipment rental?"],
+      "responses": [
+        "Our pricing for janitorial cleaning varies based on the scope of work. Please contact us for a detailed quote.",
+        "For home cleaning, our rates depend on the size and specific requirements. Please inquire for details.",
+        "Our post-construction cleaning pricing is customized to meet the needs of each project.",
+        "The cost of outsourcing varies depending on the tasks and duration. Let's discuss your specific requirements for accurate pricing.",
+        "Fees for business report services are determined based on the scope and depth of the report. Let's understand your needs.",
+        "Our charges for executive car hire vary based on the type of vehicle and duration. Please contact us for specific pricing.",
+        "Journey management pricing depends on the distance and service level required. Inquire for more details.",
+        "The cost of our fleet management service is determined by the size of the fleet and services needed. Let's discuss your requirements.",
+        "Yes, we have customized packages for safety equipment rental based on client needs."
+      ]
+    },
+    {
+      "tag": "cancellation_reschedule",
+      "patterns": ["I need to cancel my cleaning appointment.", "How can I cancel my booking?", "Cancel my executive car hire reservation.", "Can I reschedule my training session?"],
+      "responses": [
+        "I'm sorry to hear that you want to cancel. Please provide your booking details, and I'll assist you.",
+        "Sure, I can help you with the cancellation process. Please provide your booking information.",
+        "Understood. Please provide your executive car hire reservation details for cancellation.",
+        "Of course, we can reschedule your training session. Please provide the new preferred date and time."
+      ]
+    },
+    {
+      "tag": "complaint",
+      "patterns": ["I had a bad experience with your cleaning service.", "I want to complain about the logistic service provided.", "Your executive car hire was not up to the mark.", "I faced issues with your recruitment process."],
+      "responses": [
+        "I apologize for any inconvenience caused. Please share your feedback, and we'll address the issue.",
+        "I'm sorry to hear that. We take complaints seriously and will investigate the matter.",
+        "I apologize for the inconvenience with the executive car hire. We'll take appropriate measures to improve the service.",
+        "I'm sorry for the issues with the recruitment process. Let's discuss your concerns and find a resolution."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thank you for the great cleaning service!", "Thanks for the logistic support.", "Your executive car hire made my journey comfortable.", "I appreciate your business assistance."],
+      "responses": [
+        "You're welcome! It was a pleasure serving you.",
+        "Thank you for choosing our logistic services. We're glad you're satisfied.",
+        "We're delighted to hear that our executive car hire met your expectations.",
+        "We appreciate your business and are here to support you whenever needed."
+      ]
+    },
+    {
+      "tag": "why_choose_us",
+      "patterns": [
+        "What sets Arc Solution apart in terms of knowledge and experience?",
+        "How does Arc Solution provide enormous logistics support?",
+        "How is Arc Solution's team committed to providing excellent services?",
+        "How does Arc Solution ensure technical competence in its services?",
+        "What makes Arc Solution an emblem of quality?",
+        "How does Arc Solution prioritize customer satisfaction?",
+        "Does Arc Solution provide 24/7 customer support?",
+        "How does Arc Solution assure security in its services?"
+      ],
+      "responses": [
+        "Arc Solution has extensive knowledge and experience in providing top-class cleaning and logistic services. Our team is well-trained and dedicated to delivering excellence.",
+        "Arc Solution offers enormous logistics support through our well-maintained fleet and efficient fleet management system.",
+        "Arc Solution's team is committed to providing excellent services by taking pride in their work and maintaining high standards.",
+        "Arc Solution ensures technical competence through continuous training and development of our staff, keeping them updated with the latest practices and technologies.",
+        "Arc Solution is an emblem of quality due to our unwavering commitment to excellence and customer satisfaction.",
+        "Customer satisfaction is our top priority, and we strive to exceed our customers' expectations in every project we undertake.",
+        "Yes, Arc Solution provides 24/7 customer support to assist you at any time.",
+        "Arc Solution assures security in its services by implementing robust security measures and following industry best practices."
+      ]
+    },
+    {
+      "tag": "contact_details",
+      "patterns": ["What are your contact details?", "How can I reach you?", "Tell me your phone numbers and email address."],
+      "responses": ["You can contact us at +2348062481004, +2348026401777, or +2348033734383. You can also reach us via email at info@arcsolutionslimited.com."]
+    }
+  ]
+}
