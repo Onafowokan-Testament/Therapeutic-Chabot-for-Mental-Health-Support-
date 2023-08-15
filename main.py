@@ -9,8 +9,8 @@ import streamlit as st
 import random
 import collections.abc
 import json
-
-
+import random
+import time
 
 
 # Ignore warnings
@@ -107,6 +107,15 @@ answer = get_answer(prd)
 response = answer
 
 with st.chat_message("assistant"):
-    st.markdown(response)
+    full_response = ""
+    message_placeholder = st.empty()
+    for chunk in response:
+        full_response += chunk + ""
+        time.sleep(0.05)
+        message_placeholder.markdown(full_response + "▌")
+    message_placeholder.markdown(full_response)
+
+
+
 
 st.session_state.messages.append({"role": "assistant", "content": response})
