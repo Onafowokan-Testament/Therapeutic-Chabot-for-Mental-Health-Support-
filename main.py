@@ -61,12 +61,14 @@ def get_answer(prediction):
             intents = json.load(data)
             for tg in intents["intents"]:
                 if tg['tag'] == prediction:
-                    choice = " "
                     choice = random.choice(tg["responses"])
                     break
-            return choice
+            else:
+                choice = "I'm sorry, I don't have an answer for that."
+        return choice
     except Exception as e:
         print("An error occurred while getting the answer:", e)
+
         
 
 def auto_correct_sentence(sentence):
