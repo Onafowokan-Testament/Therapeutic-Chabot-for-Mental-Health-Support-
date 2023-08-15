@@ -9,8 +9,8 @@ import streamlit as st
 import random
 import collections.abc
 import json
-
-
+import random
+import time
 
 
 # Ignore warnings
@@ -50,8 +50,8 @@ def predict(input, tags):
         max_prob = max(model.predict(input)[0])
         return prediction, max_prob
     except Exception as e:
-        print("An error occurred while predicting:", e)
-        return None, None
+        print("I am medibot, I can solve all problem 😁😁")
+        return " I am medibot, I can solve all problem 😁😁"
 
 
 
@@ -61,12 +61,13 @@ def get_answer(prediction):
             intents = json.load(data)
             for tg in intents["intents"]:
                 if tg['tag'] == prediction:
+                    choice = " "
                     choice = random.choice(tg["responses"])
                     break
             return choice
     except Exception as e:
         print("An error occurred while getting the answer:", e)
-        return "Sorry, an error occurred while getting the answer."
+        return "I am medibot, I can solve all problem 😁😁"
 
 def auto_correct_sentence(sentence):
     corrected_tokens = [spell.correction(token) for token in sentence]
@@ -89,7 +90,7 @@ tags, vocab, dic_of_word = data()
 spell = SpellChecker()
 spell.word_frequency.load_words(dic_of_word)
 
-st.title("Welcome to arc solution chatbot!")
+st.title("I am medibot, I can solve all problem 😁😁")
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -107,6 +108,15 @@ answer = get_answer(prd)
 response = answer
 
 with st.chat_message("assistant"):
-    st.markdown(response)
+    full_response = ""
+    message_placeholder = st.empty()
+    for chunk in response:
+        full_response += chunk + ""
+        time.sleep(0.05)
+        message_placeholder.markdown(full_response + "▌")
+    message_placeholder.markdown(full_response)
+
+
+
 
 st.session_state.messages.append({"role": "assistant", "content": response})
