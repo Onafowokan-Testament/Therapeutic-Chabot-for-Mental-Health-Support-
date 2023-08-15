@@ -51,7 +51,7 @@ def predict(input, tags):
         return prediction, max_prob
     except Exception as e:
         print("I am medibot, I can solve all problem 😁😁")
-        return
+        return [None, None]
 
 
 
@@ -89,34 +89,39 @@ tags, vocab, dic_of_word = data()
 
 spell = SpellChecker()
 spell.word_frequency.load_words(dic_of_word)
-
-st.title("I am medibot, I can solve all problem 😁😁")
-
-if "messages" not in st.session_state:
-    st.session_state.messages = []
-
-for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
-
-if prompt := st.chat_input("Enter something..."):
-    st.chat_message("user").markdown(prompt)
-    st.session_state.messages.append({"role": "user", "content": prompt})
-
-    prd, max_prob = predict(process_question(prompt, vocab), tags)
-    answer = get_answer(prd)
-    response = answer
-
-    with st.chat_message("assistant"):
-        full_response = ""
-        message_placeholder = st.empty()
-        for chunk in response:
-            full_response += chunk + ""
-            time.sleep(0.05)
-            message_placeholder.markdown(full_response + "▌")
-        message_placeholder.markdown(full_response)
+def main():
 
 
+    st.title("I am medibot, I can solve all problem 😁😁")
+
+    if "messages" not in st.session_state:
+        st.session_state.messages = []
+
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
+
+    if prompt := st.chat_input("Enter something..."):
+        st.chat_message("user").markdown(prompt)
+        st.session_state.messages.append({"role": "user", "content": prompt})
+
+        prd, max_prob = predict(process_question(prompt, vocab), tags)
+        answer = get_answer(prd)
+        response = answer
+
+        with st.chat_message("assistant"):
+            full_response = ""
+            message_placeholder = st.empty()
+            for chunk in response:
+                full_response += chunk + ""
+                time.sleep(0.05)
+                message_placeholder.markdown(full_response + "▌")
+            message_placeholder.markdown(full_response)
 
 
-    st.session_state.messages.append({"role": "assistant", "content": response})
+
+
+        st.session_state.messages.append({"role": "assistant", "content": response})
+
+if __name__ == "__main__":
+    main()
