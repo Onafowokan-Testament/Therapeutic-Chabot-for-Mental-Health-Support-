@@ -15,15 +15,19 @@ import time
 # Ignore warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 warnings.filterwarnings("ignore", category=FutureWarning)
-warnings.filterwarnings("ignore", message="Model was constructed with shape (None, None, 47, 121) for input KerasTensor.*")
+warnings.filterwarnings(
+    "ignore", message="Model was constructed with shape (None, None, 47, 121) for input KerasTensor.*")
 
 # Functions
+
 
 def tokenize(question):
     return word_tokenize(question)
 
+
 def stem_word(word, stemmer=PorterStemmer()):
     return stemmer.stem(word)
+
 
 def data():
     with open("tags.json", "r") as file:
@@ -35,12 +39,14 @@ def data():
         dic_of_words = json.load(file)
     return tags, all_words, dic_of_words
 
+
 def bag_of_words(vocab, tok_sentence):
     bag = np.zeros(len(vocab), dtype=np.float32)
     for ind, word in enumerate(vocab):
         if word in tok_sentence:
             bag[ind] = 1.0
     return bag
+
 
 def predict(input, tags):
     try:
@@ -49,9 +55,8 @@ def predict(input, tags):
         max_prob = max(model.predict(input)[0])
         return prediction, max_prob
     except Exception as e:
-        print("I am medibot, I can solve all problem 😁😁")
+        print("I am Therabot 🤖, I am your mental buddy 😁😁")
         return [None, None]
-
 
 
 def get_answer(prediction):
@@ -68,18 +73,19 @@ def get_answer(prediction):
     except Exception as e:
         print("An error occurred while getting the answer:", e)
 
-        
-
 
 def process_question(question, vocab):
     try:
         tok_ques = tokenize(question)
-        stemmed_words = [stem_word(s) for s in tok_ques if s not in [',', '.', '!', '?', ',']]
-        word_bag = np.array([1.0 if word in stemmed_words else 0.0 for word in vocab], dtype=np.float32)
+        stemmed_words = [stem_word(s) for s in tok_ques if s not in [
+            ',', '.', '!', '?', ',']]
+        word_bag = np.array(
+            [1.0 if word in stemmed_words else 0.0 for word in vocab], dtype=np.float32)
         word_bag = np.expand_dims(word_bag, axis=0)
         return word_bag
     except Exception as e:
         print("An error occurred while processing the question:", e)
+
 
 # Main program
 tags, vocab, dic_of_word = data()
@@ -87,8 +93,7 @@ tags, vocab, dic_of_word = data()
 
 def main():
 
-
-    st.title("I am medibot, I can solve all problem 😁😁")
+    st.title("I am Therabot 🤖, I am your mental buddy 😁😁")
 
     if "messages" not in st.session_state:
         st.session_state.messages = []
@@ -114,10 +119,9 @@ def main():
                 message_placeholder.markdown(full_response + "▌")
             message_placeholder.markdown(full_response)
 
+        st.session_state.messages.append(
+            {"role": "assistant", "content": response})
 
-
-
-        st.session_state.messages.append({"role": "assistant", "content": response})
 
 if __name__ == "__main__":
     main()
