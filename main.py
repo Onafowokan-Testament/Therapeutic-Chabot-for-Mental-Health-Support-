@@ -3,7 +3,6 @@ import tensorflow as tf
 import warnings
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
-from spellchecker import SpellChecker
 import numpy as np
 import streamlit as st
 import random
@@ -71,10 +70,6 @@ def get_answer(prediction):
 
         
 
-def auto_correct_sentence(sentence):
-    corrected_tokens = [spell.correction(token) for token in sentence]
-    cor_ques = auto_correct_sentence(corrected_tokens)
-    return corrected_tokens
 
 def process_question(question, vocab):
     try:
@@ -89,8 +84,7 @@ def process_question(question, vocab):
 # Main program
 tags, vocab, dic_of_word = data()
 
-spell = SpellChecker()
-spell.word_frequency.load_words(dic_of_word)
+
 def main():
 
 
