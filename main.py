@@ -57,6 +57,7 @@ def predict(input, tags):
         return prediction, max_prob
     except Exception as e:
         st.text(prediction)
+        st.text(e)
         print("I am Therabot 🤖, I am your mental buddy 😁😁")
         return [None, None]
 
