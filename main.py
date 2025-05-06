@@ -3,7 +3,6 @@ import tensorflow as tf
 import warnings
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
-from spellchecker import SpellChecker
 import numpy as np
 import streamlit as st
 import random
