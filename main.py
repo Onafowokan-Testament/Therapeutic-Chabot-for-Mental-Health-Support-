@@ -50,11 +50,13 @@ def bag_of_words(vocab, tok_sentence):
 
 def predict(input, tags):
     try:
-        model = tf.keras.models.load_model("model2")
+        model = tf.keras.models.load_model("saved_model.pb")
         prediction = tags[np.argmax(model.predict(input))]
+        st.text(prediction)
         max_prob = max(model.predict(input)[0])
         return prediction, max_prob
     except Exception as e:
+        st.text(prediction)
         print("I am Therabot 🤖, I am your mental buddy 😁😁")
         return [None, None]
 
