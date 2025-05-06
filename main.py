@@ -96,7 +96,7 @@ tags, vocab, dic_of_word = data()
 
 def main():
 
-    st.title("I am Therabot 🤖, I am your mental buddy 😁😁")
+    st.title("I am Therabot , I am your mental buddy 😁😁")
 
     if "messages" not in st.session_state:
         st.session_state.messages = []
